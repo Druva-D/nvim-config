@@ -25,6 +25,8 @@ map("n", "<leader>gp", "<cmd>Git push <CR>", { desc = "Git push" })
 map("n", "<leader>gc", "<cmd>Git commit <CR>", { desc = "Git commit" })
 map("n", "<leader>gj", "diffget //3 <CR>", { desc = "Get right side change" })
 map("n", "<leader>gf", "diffget //2 <CR>", { desc = "Get left side change" })
+map("n", "<leader>gw", "<cmd>Telescope git_worktree <CR>", { desc = "Git worktrees" })
+map("n", '<leader>gW', '<cmd>Telescope git_worktree create<cr>', { desc = "Create git worktree" })
 
 map("n", "<C-t>", function()
     require("nvchad.term").toggle { pos = "float", id = "floatTerm", float_opts = { border = "double" } } -- require("nvterm.terminal").toggle "float"
@@ -44,6 +46,11 @@ end, { desc = "Git reset hunk" })
 map("n", "<leader>rp", function()
     require("gitsigns").preview_hunk()
 end, { desc = "Git preview hunk" })
+
+
+map("n", "<leader>rb", function()
+    require("gitsigns").toggle_current_line_blame()
+end, { desc = "Git toggle blame" })
 
 map("n", "<leader>a", function()
     -- select all lines using ggVG
